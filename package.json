@@ -1,0 +1,14 @@
+{
+  "name": "test-inclusion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Juan Carlos Guerra",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

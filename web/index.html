@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en" ng-app="inclusionTest">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/angular.min.js"></script>  
+    <script src="js/script.js"></script>  
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <title>JCGuerra - Test Inclusion</title>
+  </head>
+  <body ng-controller="inclusionController">
+        <header>
+            <!-- Fixed navbar -->
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                
+            </nav>
+        </header>
+
+        <section id="headClientes">
+            <div class="container">
+                <h1>Listado de Clientes</h1>
+                <div class="form-inline">
+                    <div class="form-group">
+                        <label>Ordernar por: </label>
+                        <select ng-model="filtrarColumna" class="form-control mx-sm-3">
+                            <option value="ID">ID</option>
+                            <option value="Nombre">Nombre</option>
+                            <option value="Apellido">Apellido</option>
+                            <option value="DNI">DNI</option>
+                        </select>
+                    </div>                               
+                    <div class="float-right">
+                        <div class="input-group">
+                            <input 
+                                class="input-sm form-control" 
+                                type="text"
+                                placeholder="Buscar..."
+                                ng-model="buscarCliente"
+                            ></input>
+                            <div class="input-group-btn">
+                                <!--button 
+                                    class="btn btn-default" 
+                                    value="buscador" 
+                                    ng-click=""  
+                                    data-toggle="tooltip" 
+                                    data-placement="top" 
+                                    title="Buscar"
+                                ><i class="fa fa-search"></i></button-->
+                                <button 
+                                    class="btn btn-default" 
+                                    data-toggle="tooltip" 
+                                    data-placement="top" 
+                                    title="Refrescar"
+                                    onclick="window.location.reload()"
+                                ><i class="fa fa-refresh"></i></button>
+                            </div>
+                        </div>    
+                    </div>	
+                </div>
+            </div>  
+        </section>
+        <section id="tblClientes">
+            <div class="container">
+                <table class="table">
+                    <tr>
+                        <th ng-click="filtrarData('ID')">ID         <div ng-class="getFiltradoClass('ID')"></div></th>
+                        <th ng-click="filtrarData('Nombre')">Nombre <div ng-class="getFiltradoClass('Nombre')"></div></th>
+                        <th ng-click="filtrarData('Apellido')">Apellido <div ng-class="getFiltradoClass('Apellido')"></div></th>
+                        <th ng-click="filtrarData('DNI')">DNI <div ng-class="getFiltradoClass('DNI')"></div></th>
+                    </tr>
+                    <tr ng-repeat="cliente in clientes | orderBy:filtrarColumna:reverseFiltrado | filter:buscarCliente">
+                        <td>{{cliente.ID}}</td>
+                        <td>{{cliente.Nombre}}</td>
+                        <td>{{cliente.Apellido}}</td>
+                        <td>{{cliente.DNI}}</td>
+                    </tr>
+                </table>    
+            </div>
+        </section>
+
+        <footer class="footer bg-dark">
+            <div class="container">
+                Test Inclusion
+                <div class="float-right">
+                    <span class="text-muted">Juan Carlos Guerra </span>
+                    <a class="social" target="_blank" href="https://www.github.com/jcguerra46"> 
+                        <i 
+                            class="fa fa-github" 
+                            data-toggle="tooltip" 
+                            data-placement="top" 
+                            title="Github"
+                        ></i></a>
+                    <a class="social" target="_blank" href="https://www.linkedin.com/in/jcguerra"> 
+                        <i 
+                            class="fa fa-linkedin"
+                            data-toggle="tooltip" 
+                            data-placement="top" 
+                            title="Linkedin"
+                        ></i></a>
+                </div>
+            </div>
+        </footer>
+              
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!--script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

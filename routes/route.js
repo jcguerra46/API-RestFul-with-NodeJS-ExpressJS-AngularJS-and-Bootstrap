@@ -1,0 +1,32 @@
+module.exports = function (app) {
+
+	app.get('/api/clientes', function (req, res, next) {
+        res.status(200).json({"clientes": 
+            [
+                {
+                    "ID":"1", 
+                    "Nombre":"Lucas", 
+                    "Apellido":"Gaitan",
+                    "DNI":"38762511"
+                },
+                {
+                    "ID":"2", 
+                    "Nombre":"Pepe", 
+                    "Apellido":"Gomez",
+                    "DNI":"213214124"
+                },
+                {
+                    "ID":"3", 
+                    "Nombre":"Guille", 
+                    "Apellido":"Grillo",
+                    "DNI":"42141251"
+                }
+            ]    
+        });
+    });
+
+	app.get('*', function(req, res, next) {
+        res.render('../web/index.html');
+    });
+
+};
