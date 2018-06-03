@@ -41,3 +41,23 @@ localhost:3000/api/clientes
 
 - Se agregaron las funcionalidades al buscador, a la caja de selección para el ordenamiento del listado, a las etiquetas de columnas para ordenar de forma Asc/Desc y al botón para refrescar.
 
+
+```
+## App Info
+
+### Autor
+
+JCGuerra
+[JCGuerra Solutions](http://jcguerra.solutions)
+
+### Test solicitado por
+[Inclusion S.A.](http://inclusion.cloud/ES/)
+
+### Version
+
+1.0.0
+
+### License
+
+This project is licensed under the MIT License
+```
